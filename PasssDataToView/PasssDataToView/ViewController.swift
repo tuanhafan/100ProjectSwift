@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnDone: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeDown))
+        swipeDown.direction = .down
+        view.addGestureRecognizer(swipeDown)
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -23,9 +26,12 @@ class ViewController: UIViewController {
                textField.text = ""
            }
        }
-
+    
     @IBAction func btnPassDataAction(_ sender: UIButton) {
         
+    }
+    @objc func handleSwipeDown(){
+        view.endEditing(true)
     }
 }
 

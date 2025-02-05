@@ -28,11 +28,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEC-Qi-2o5">
+                                <rect key="frame" x="135" y="616" width="127" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Refresh">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="refreshAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Me-8k-ede"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="aFp-dz-VKb" firstAttribute="centerX" secondItem="9ms-J4-ZHH" secondAttribute="centerX" id="2h0-Qc-d2r"/>
+                            <constraint firstItem="9ms-J4-ZHH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P6B-yv-qeP"/>
                             <constraint firstItem="aFp-dz-VKb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UKT-XL-rZP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aFp-dz-VKb" secondAttribute="bottom" constant="371" id="YGl-Yp-aqP"/>
                             <constraint firstItem="aFp-dz-VKb" firstAttribute="top" secondItem="9ms-J4-ZHH" secondAttribute="bottom" constant="37" id="dQ0-hw-nDW"/>
@@ -41,6 +53,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnResfresh" destination="XEC-Qi-2o5" id="OlE-A0-DYh"/>
                         <outlet property="lbShowDateTimer" destination="aFp-dz-VKb" id="3mB-Dd-eNV"/>
                         <outlet property="lbinFor" destination="9ms-J4-ZHH" id="fa2-gD-KEe"/>
                     </connections>

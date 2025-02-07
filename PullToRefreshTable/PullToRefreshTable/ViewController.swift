@@ -17,6 +17,7 @@ class ViewController: UIViewController, AddItemToTbDelegate {
 
     @IBOutlet weak var btnAdd: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    var itemCell:String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,11 +26,19 @@ class ViewController: UIViewController, AddItemToTbDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addItemToTb" {
+        switch segue.identifier {
+           case "addItemToTb" :
             if let addItemVC = segue.destination as? AddIItemViewController {
-                addItemVC.delegateAddItem = self 
+                addItemVC.delegateAddItem = self
             }
+           case "infor" :
+            if let addItemVC = segue.destination as? InforViewController {
+                addItemVC.item = itemCell            }
+           default:
+                break
         }
+    
+        
     }
     
     func setUpRefreshControll() {
@@ -101,7 +110,8 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+         itemCell = data[indexPath.row]
+        //performSegue(withIdentifier: "infor", sender: self)
     }
     
 }

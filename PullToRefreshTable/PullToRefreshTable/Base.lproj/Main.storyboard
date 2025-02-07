@@ -42,6 +42,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="lblText" destination="lfN-kE-FnI" id="LMv-Nb-4Jx"/>
+                                            <segue destination="UnY-o8-jdC" kind="show" identifier="infor" id="jcJ-su-QMx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -121,7 +122,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Str-ru-Hxb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533.5877862595419" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1761" y="-27"/>
+        </scene>
+        <!--Infor View Controller-->
+        <scene sceneID="gZ7-a0-oB5">
+            <objects>
+                <viewController storyboardIdentifier="InforViewController" id="UnY-o8-jdC" customClass="InforViewController" customModule="PullToRefreshTable" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="39E-PZ-rHT">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQo-mi-kFm">
+                                <rect key="frame" x="16" y="256" width="361" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5aw-vS-KiG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5aw-vS-KiG" firstAttribute="bottom" secondItem="xQo-mi-kFm" secondAttribute="bottom" constant="511" id="F7a-nd-kic"/>
+                            <constraint firstItem="xQo-mi-kFm" firstAttribute="leading" secondItem="39E-PZ-rHT" secondAttribute="leadingMargin" id="VXR-4v-ZBf"/>
+                            <constraint firstItem="xQo-mi-kFm" firstAttribute="top" secondItem="5aw-vS-KiG" secondAttribute="top" constant="153" id="caf-OL-wKj"/>
+                            <constraint firstItem="xQo-mi-kFm" firstAttribute="trailing" secondItem="39E-PZ-rHT" secondAttribute="trailingMargin" id="gb2-Hp-TQh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wS6-2F-yFj"/>
+                    <connections>
+                        <outlet property="lbtext" destination="xQo-mi-kFm" id="IZn-iQ-HxF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUS-bH-v0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="821" y="681"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GjN-ih-C6T">

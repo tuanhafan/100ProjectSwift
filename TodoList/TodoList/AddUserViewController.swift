@@ -58,16 +58,7 @@ class AddUserViewController: UIViewController {
    
 }
 
-extension AddUserViewController: UITextViewDelegate {
-    
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        placeHolderDes.isHidden = !textView.text.isEmpty  // Hiện lại nếu trống
-//        }
-//    
-//    func textViewDidChange(_ textView:UITextView) {
-//        placeHolderDes.isHidden = !textView.text.isEmpty
-//    }
-}
+
 
 extension AddUserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     

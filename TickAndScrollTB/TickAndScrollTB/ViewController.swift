@@ -18,9 +18,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
     }
-
-
 }
+
+var checkAction :(() -> Void)?
+
 func checkBtn(_ sender: UIButton){
     var check =  users[sender.tag].check
    

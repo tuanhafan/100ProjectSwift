@@ -16,20 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" restorationIdentifier="ViewHeader" translatesAutoresizingMaskIntoConstraints="NO" id="Rjl-kF-fAY" customClass="ViewHeader" customModule="CreditBalance" customModuleProvider="target">
-                                <rect key="frame" x="16" y="59" width="361" height="149"/>
-                                <color key="backgroundColor" red="0.26639526884526643" green="0.49661952821048261" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQ1-v9-v8q">
                                 <rect key="frame" x="16" y="226" width="78.333333333333329" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Rg-kM-ntn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Rg-kM-ntn">
                                 <rect key="frame" x="16" y="274" width="361" height="544"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="544" id="0hd-jQ-YID"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="nKC-I6-r3m" customClass="CustomCell" customModule="CreditBalance" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
@@ -45,23 +43,44 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="aR7-bZ-3Ta"/>
                                 </connections>
                             </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="acQ-ut-sNm">
+                                <rect key="frame" x="16" y="59" width="361" height="159"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellHeader" id="6jJ-Ii-HKk" customClass="CustomCell" customModule="CreditBalance" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6jJ-Ii-HKk" id="bCL-HM-J6k">
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="5Yg-Gx-wit"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="h0v-bO-zos"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Rjl-kF-fAY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JMj-bM-QiJ"/>
+                            <constraint firstItem="8Rg-kM-ntn" firstAttribute="trailing" secondItem="acQ-ut-sNm" secondAttribute="trailing" id="0SD-S2-46g"/>
+                            <constraint firstItem="JQ1-v9-v8q" firstAttribute="top" secondItem="acQ-ut-sNm" secondAttribute="bottom" constant="8" id="0YV-p9-OeB"/>
+                            <constraint firstItem="8Rg-kM-ntn" firstAttribute="top" secondItem="JQ1-v9-v8q" secondAttribute="bottom" constant="24" id="8s6-si-t42"/>
+                            <constraint firstItem="8Rg-kM-ntn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="FKv-IU-DBg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JQ1-v9-v8q" secondAttribute="trailing" symbolic="YES" id="JkJ-xd-fhV"/>
-                            <constraint firstItem="Rjl-kF-fAY" firstAttribute="leading" secondItem="JQ1-v9-v8q" secondAttribute="leading" id="Lxo-7Z-rPn"/>
-                            <constraint firstItem="JQ1-v9-v8q" firstAttribute="top" secondItem="Rjl-kF-fAY" secondAttribute="bottom" constant="18" id="SfD-Wa-gmb"/>
-                            <constraint firstItem="Rjl-kF-fAY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="e22-bt-80e"/>
-                            <constraint firstAttribute="bottom" secondItem="Rjl-kF-fAY" secondAttribute="bottom" constant="644" id="mGm-Wh-Kv4"/>
-                            <constraint firstItem="Rjl-kF-fAY" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="r2E-A0-Psu"/>
+                            <constraint firstItem="8Rg-kM-ntn" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="XjC-0F-mNw"/>
+                            <constraint firstItem="8Rg-kM-ntn" firstAttribute="leading" secondItem="acQ-ut-sNm" secondAttribute="leading" id="ikV-1M-14e"/>
+                            <constraint firstItem="acQ-ut-sNm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="j0A-Ga-y62"/>
+                            <constraint firstItem="8Rg-kM-ntn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jEN-W4-eGC"/>
+                            <constraint firstItem="8Rg-kM-ntn" firstAttribute="leading" secondItem="JQ1-v9-v8q" secondAttribute="leading" id="ppm-3i-D16"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="lblrecent" destination="JQ1-v9-v8q" id="Pni-pg-76W"/>
-                        <outlet property="tableView" destination="8Rg-kM-ntn" id="ffS-dx-bwD"/>
-                        <outlet property="viewHeader" destination="Rjl-kF-fAY" id="km8-p7-7AH"/>
+                        <outlet property="tableViewContent" destination="8Rg-kM-ntn" id="F4b-YD-nRi"/>
+                        <outlet property="tableViewHeader" destination="acQ-ut-sNm" id="eb4-vU-0qU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

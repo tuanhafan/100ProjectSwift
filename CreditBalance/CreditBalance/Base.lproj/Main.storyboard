@@ -47,7 +47,7 @@
                                 <rect key="frame" x="16" y="59" width="361" height="159"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellHeader" id="6jJ-Ii-HKk" customClass="CustomCell" customModule="CreditBalance" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellHeader" id="6jJ-Ii-HKk" customClass="CustomCellHeader" customModule="CreditBalance" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6jJ-Ii-HKk" id="bCL-HM-J6k">

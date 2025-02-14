@@ -59,7 +59,7 @@
         <scene sceneID="AB6-MC-a5a">
             <objects>
                 <viewController storyboardIdentifier="AddNewViewController" id="8sO-Kt-eob" customClass="AddNewViewController" customModule="SaveDateLocationPhoto" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="u81-jL-dwZ" customClass="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u81-jL-dwZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

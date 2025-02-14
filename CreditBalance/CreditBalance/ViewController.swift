@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         tableViewContent.register(CustomCell.self, forCellReuseIdentifier: "cell")
-        tableViewHeader.register(CustomCell.self, forCellReuseIdentifier: "cellHeader")
+        tableViewHeader.register(CustomCellHeader.self, forCellReuseIdentifier: "cellHeader")
         tableViewContent.rowHeight = 60
         tableViewContent.separatorStyle = .none
         tableViewHeader.rowHeight = UITableView.automaticDimension
@@ -64,16 +64,15 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
                 return UITableViewCell()
         }
             let recent:Recent = recents[indexPath.row]
-            cell.configure(recent: recent,typeCell: "Content")
+            cell.configure(recent: recent)
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellHeader", for: indexPath) as? CustomCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellHeader", for: indexPath) as? CustomCellHeader else {
               
                 return UITableViewCell()
         }
             
-            cell.configure(typeCell: "Header")
-            return cell
+                return cell
         }
         
     }

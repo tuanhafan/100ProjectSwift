@@ -9,9 +9,9 @@ import Foundation
 func formatNumberAmount(_ number: Double) -> String {
     let formatter = NumberFormatter()
     formatter.numberStyle = .decimal
-    formatter.groupingSeparator = ","   // Phân cách phần nghìn bằng dấu `,`
-    formatter.decimalSeparator = "."    // Dấu thập phân là `.`
-    formatter.minimumFractionDigits = 2 // Luôn có 2 chữ số sau dấu thập phân
+    formatter.groupingSeparator = ","
+    formatter.decimalSeparator = "."
+    formatter.minimumFractionDigits = 2 
     formatter.maximumFractionDigits = 2
     formatter.negativePrefix = ""
     return "$\(formatter.string(from: NSNumber(value: number)) ?? "0.00" )"

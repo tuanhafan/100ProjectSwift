@@ -13,11 +13,11 @@ class AddNewViewController: UIViewController,UITextViewDelegate {
     @IBOutlet var tvContent: UITextView!
     let uiImagePicker = UIImagePickerController()
     var imageContent : UIImageView = UIImageView(image: UIImage(systemName: "photo"))
-   
+    var addNewPostAction : ((_ : Post) -> Void)?
     let locationManager = CLLocationManager()
     
     var labelLocation = UILabel()
-    
+    var post : Post = Post(image: "flower16", time: "02:30 PM", location: "Hà Nội", content: "Hôm nay Thái BÌnh mưa phùn")
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpToolBar()
@@ -25,12 +25,24 @@ class AddNewViewController: UIViewController,UITextViewDelegate {
         tvContent.delegate = self
         tvContent.addSubview(placeHolder)
        
+        let now = Date()
+        post.time  = formatTime(date: now)
+        
         NSLayoutConstraint.activate([
             placeHolder.topAnchor.constraint(equalTo: tvContent.topAnchor, constant: 10),
             placeHolder.leadingAnchor.constraint(equalTo: tvContent.leadingAnchor, constant: 5),
         ])
-        print(labelLocation.text)
+        
     }
+    
+    func formatTime(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mma"
+        formatter.amSymbol = "am"
+        formatter.pmSymbol = "pm"
+        return formatter.string(from: date)
+    }
+    
     
     let placeHolder : UILabel = {
         let label = UILabel()
@@ -44,7 +56,16 @@ class AddNewViewController: UIViewController,UITextViewDelegate {
    
     
     @objc func addPostAction() {
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
+//        addNewPostAction?(post)
+        print(post)
+    }
+    
+    @objc func textViewChanged(notification:Notification) {
+        if let textView = notification.object as? UITextView {
+            print("in text view")
+            post.content = textView.text
+        }
     }
     
     @objc func locationTapped() {
@@ -107,7 +128,9 @@ class AddNewViewController: UIViewController,UITextViewDelegate {
         
     }
     
-
+    deinit{
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 extension AddNewViewController : UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -137,6 +160,7 @@ extension AddNewViewController : CLLocationManagerDelegate {
         geocoder.reverseGeocodeLocation(location){
             (placeMarks, error) in
             if let  error = error {
+                print(error)
                 return
             }
             if let placemark = placeMarks?.first {
@@ -146,7 +170,7 @@ extension AddNewViewController : CLLocationManagerDelegate {
                     \(placemark.administrativeArea ?? ""),
                     \(placemark.country ?? "")
                     """.replacingOccurrences(of: "\n", with: " ")
-               
+                self.post.location = address
                 self.labelLocation.text = address
             }
         }

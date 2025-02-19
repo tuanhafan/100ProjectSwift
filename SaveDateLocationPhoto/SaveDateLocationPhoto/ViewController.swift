@@ -9,12 +9,12 @@ import UIKit
 
 struct Post {
     let image: String
-    let time: String
-    let location: String
-    let content: String
+    var time: String
+    var location: String
+    var content: String
 }
 
-let posts: [Post] = [
+var posts: [Post] = [
     Post(image: "flower16", time: "08:30 AM", location: "Hà Nội", content: "Buổi sáng đẹp trời! Buổi sáng đẹp trời!Buổi sáng đẹp trời!Buổi sáng đẹp trời!"),
     Post(image: "flower16", time: "09:15 AM", location: "TP. Hồ Chí Minh", content: "Đi cà phê sáng.Buổi sáng đẹp trời!Buổi sáng đẹp trời!Buổi sáng đẹp trời!"),
     Post(image: "flower16", time: "10:45 AM", location: "Đà Nẵng", content: "Tham quan biển.Buổi sáng đẹp trời!Buổi sáng đẹp trời!Buổi sáng đẹp trời!"),
@@ -35,7 +35,17 @@ class ViewController: UIViewController {
         tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addNewPost))
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "add" , let addPostVC = segue.destination as? AddNewViewController {
+            addPostVC.addNewPostAction = { [weak self] newPost in
+                posts.insert(newPost, at: 0)
+                self?.tableView.reloadData()
+                
+            }
+        }
+    }
+    
     @objc func addNewPost () {
         performSegue(withIdentifier: "add", sender: nil)
     }

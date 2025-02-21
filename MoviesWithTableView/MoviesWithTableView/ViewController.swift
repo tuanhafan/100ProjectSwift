@@ -38,12 +38,6 @@ extension ViewController : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         var newData  = movies.filter {$0.title.lowercased().contains(searchText.lowercased())}
-        if newData.isEmpty && searchText.isEmpty {
-            newData  = movies
-        }
-        else if(newData.isEmpty){
-            newData  = movies.filter {$0.title.lowercased().contains(searchText.lowercased())}
-        }
         data = newData
         tableContent.reloadData()
     }

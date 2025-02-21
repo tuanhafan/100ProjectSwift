@@ -61,7 +61,7 @@
             </objects>
             <point key="canvasLocation" x="924.4274809160305" y="-27.464788732394368"/>
         </scene>
-        <!--Detail Image-->
+        <!--Image-->
         <scene sceneID="wOQ-65-Er6">
             <objects>
                 <viewController id="mYX-vC-Rcf" customClass="DetailImage" customModule="CollectionViewBasic" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,7 +82,7 @@
                             <constraint firstItem="mdH-Xb-MD6" firstAttribute="bottom" secondItem="idS-uo-PBX" secondAttribute="bottom" constant="500" id="uMq-Uo-E1t"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pci-re-em2"/>
+                    <navigationItem key="navigationItem" title="Image" id="pci-re-em2"/>
                     <connections>
                         <outlet property="imageContent" destination="idS-uo-PBX" id="42e-le-q2H"/>
                     </connections>

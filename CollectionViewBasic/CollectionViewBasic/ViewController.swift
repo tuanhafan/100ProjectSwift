@@ -7,7 +7,7 @@
 
 import UIKit
 
-let dataLength = 30
+let dataLength = 20
 
 class ViewController: UIViewController {
 
@@ -20,13 +20,24 @@ class ViewController: UIViewController {
         collectionViewContent.collectionViewLayout = layout
 
         collectionViewContent.register(CustomCell.nib(), forCellWithReuseIdentifier: CustomCell.identifier)
+    
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detail" {
+           if let detailVc = segue.destination as? DetailImage {
+                detailVc.nameImage = sender as! String
+            }
+        }
     }
 
   
 }
 
 extension ViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "detail", sender: "\(indexPath.row)")
+    }
 }
 
 
@@ -41,14 +52,14 @@ extension ViewController:  UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell else {
             return UICollectionViewCell()
         }
-        cell.backgroundColor = UIColor.random()
+        cell.configure(with: indexPath.row)
         return cell
     }
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfItemPerRow: CGFloat = 5
+        let numberOfItemPerRow: CGFloat = 3
         let spacing : CGFloat = 5
         let totalSpacing = spacing * (numberOfItemPerRow - 1)
         let collectionViewWidth = collectionView.frame.width
@@ -63,4 +74,8 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
+extension UIColor {
+    static func random() -> UIColor {
+        return UIColor(red: CGFloat.random(in:0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in:0...1), alpha: 1.0)
+    }
+}

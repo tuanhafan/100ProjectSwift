@@ -54,11 +54,42 @@
                     <navigationItem key="navigationItem" title="Photos" id="fNL-pZ-c2x"/>
                     <connections>
                         <outlet property="collectionViewContent" destination="eTX-7p-519" id="ghK-z4-tDl"/>
+                        <segue destination="mYX-vC-Rcf" kind="show" identifier="detail" id="Xb1-Hn-E15"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="924.4274809160305" y="-27.464788732394368"/>
+        </scene>
+        <!--Detail Image-->
+        <scene sceneID="wOQ-65-Er6">
+            <objects>
+                <viewController id="mYX-vC-Rcf" customClass="DetailImage" customModule="CollectionViewBasic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tjY-wR-BZ6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="idS-uo-PBX">
+                                <rect key="frame" x="10" y="113" width="373" height="205"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mdH-Xb-MD6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="idS-uo-PBX" firstAttribute="top" secondItem="mdH-Xb-MD6" secondAttribute="top" constant="10" id="gXA-MS-cs4"/>
+                            <constraint firstItem="idS-uo-PBX" firstAttribute="leading" secondItem="mdH-Xb-MD6" secondAttribute="leading" constant="10" id="nRW-t1-hw6"/>
+                            <constraint firstItem="mdH-Xb-MD6" firstAttribute="trailing" secondItem="idS-uo-PBX" secondAttribute="trailing" constant="10" id="qtG-Wc-mxh"/>
+                            <constraint firstItem="mdH-Xb-MD6" firstAttribute="bottom" secondItem="idS-uo-PBX" secondAttribute="bottom" constant="500" id="uMq-Uo-E1t"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pci-re-em2"/>
+                    <connections>
+                        <outlet property="imageContent" destination="idS-uo-PBX" id="42e-le-q2H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O4n-sz-Oce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1760" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jfb-Us-KAx">

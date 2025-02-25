@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sliderCell" id="bVH-9K-eeP" customClass="CustomCellSlider" customModule="Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GkO-um-FJ6">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="54A-uj-kNf">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="54A-uj-kNf" firstAttribute="leading" secondItem="GkO-um-FJ6" secondAttribute="leading" id="Bo2-YV-r6y"/>
+                    <constraint firstItem="54A-uj-kNf" firstAttribute="top" secondItem="GkO-um-FJ6" secondAttribute="top" id="GLA-Ss-lax"/>
+                    <constraint firstAttribute="trailing" secondItem="54A-uj-kNf" secondAttribute="trailing" id="GrB-4h-egd"/>
+                    <constraint firstAttribute="bottom" secondItem="54A-uj-kNf" secondAttribute="bottom" id="IWZ-NC-Ulm"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <connections>
+                <outlet property="imageSlider" destination="54A-uj-kNf" id="3iC-iV-TCO"/>
+            </connections>
+            <point key="canvasLocation" x="78" y="-207"/>
+        </collectionViewCell>
+    </objects>
+</document>

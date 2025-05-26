@@ -2,11 +2,11 @@
 //  AppDelegate.swift
 //  TodoeyRealm
 //
-//  Created by AlexTran on 13/04/2025.
+//  Created by Alex Tran on 15/4/25.
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+            
+//        realmAction()
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
+          
         return true
     }
 

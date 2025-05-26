@@ -1,48 +1,75 @@
 //
-//  AlertAddManager.swift
+//  AlertManger.swift
 //  TodoeyRealm
 //
-//  Created by AlexTran on 13/04/2025.
+//  Created by Alex Tran on 16/4/25.
 //
 
-import Foundation
 import UIKit
+import RealmSwift
 
-var AlertAddManager : (
-   _ titleAlert :String,
-   _ message:String,
-   _ titleAction:String,
-   _ placeholder:String,
-//   _ createItem: @escaping (String) throws -> NSManagedObject,
-//   _ actionAddNew :@escaping (String) -> Void,
-   _ actionReload :@escaping () -> Void
-) -> UIAlertController  = { (titleAlert,message,titleAction,placeholderB,actionReload) in
+var alertAddManager : (
+    _ titleAlert :String,
+    _ message : String,
+    _ titleActionAdd:String,
+    _ placeholder :String,
+    _ creatElement : @escaping (_ name: String) -> Void
+    
+) -> UIAlertController = { (titleAlert,message,titleActionAdd,placeholder,creatElement) in
     
     let alert = UIAlertController(title: titleAlert, message: message, preferredStyle: .alert)
     
-    var textfield = UITextField()
+    var textField = UITextField()
     
-    alert.addTextField { alertTextField in
-        alertTextField.placeholder = placeholder
-        textfield = alertTextField
+    alert.addTextField { textInput in
+        textInput.placeholder = placeholder
+        textField = textInput
+        
     }
     
-    let action = UIAlertAction(title: titleAction, style: .default) { _ in
-        
-        if let getTextField = textfield.text, !getTextField.isEmpty {
-              actionReload()
-//            do {
-//                actionReload()
-//            } catch {
-//                print("Không tạo được item mới: \(error)")
-//            }
+    let actionAdd = UIAlertAction(title: titleActionAdd, style: .default) {_ in
+        if let textField = textField.text, !textField.isEmpty {
+                creatElement(textField)
         }
         
     }
     
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-    alert.addAction(action)
-    alert.addAction(cancelAction)
+    let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+    
+    alert.addAction(actionAdd)
+    alert.addAction(cancel)
+    
     return alert
     
+}
+
+var alertEditManager : (
+    _ titleAlert :String,
+    _ message : String,
+    _ oldText:String,
+    _ ediElement : @escaping (_ name: String) -> Void
+) -> UIAlertController = { (titleAlert,message,oldText,ediElement) in
+    let alert = UIAlertController(title: titleAlert, message: message, preferredStyle: .alert)
+    
+    var textField = UITextField()
+    
+    alert.addTextField { textInput in
+        textInput.text = oldText
+        textField = textInput
+        
+    }
+    
+    let actionAdd = UIAlertAction(title: "Ok", style: .default) {_ in
+        if let textField = textField.text, !textField.isEmpty {
+            ediElement(textField)
+        }
+        
+    }
+    
+    let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+    
+    alert.addAction(actionAdd)
+    alert.addAction(cancel)
+    
+    return alert
 }
